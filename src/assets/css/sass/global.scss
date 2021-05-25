@@ -1,0 +1,33 @@
+$background-color: #DDDDDD;
+$color: #000000;
+
+body {
+    overflow: hidden;
+    min-height: calc(100vh - 95px); 
+}
+
+.headerColour {
+    background-color: lightskyblue;
+}
+
+.navBarMenu {
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+}
