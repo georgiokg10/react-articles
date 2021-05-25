@@ -12,7 +12,7 @@ const Router = () => (
     <BrowserRouter>
       <Switch>
         <Redirect from="/" exact to="/home" />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
         <Route path="/lifecycle" component={LifeCycle} />
         <Route path="/travel" component={Travel} />
         <Route path="/fashion" component={Fashion} />
