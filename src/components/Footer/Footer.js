@@ -2,12 +2,8 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () =>
-  <Container className="container">
-    <Row>
-      <Col xs="12">
+  <div className="footer">
 
-      </Col>
-    </Row>
-  </Container>
+  </div>
 
 export default Footer;

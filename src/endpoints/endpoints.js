@@ -1,3 +1,6 @@
-const API_BASE_URL = "https://dev.to/api";
+import {API} from '../api';
 
-export const GET_ARTICLES = `${API_BASE_URL}/articles`;
+export const endpoints = {
+  getArticles : `${API}/articles`,
+  getArticle: `${API}/article`,
+} 

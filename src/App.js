@@ -13,9 +13,7 @@ const App = () => (
     <Col xs="12">
       <Router />
     </Col>
-    <Col xs="12">
-      <Footer />
-    </Col>
+    <Footer />
   </Row>
 );
 
