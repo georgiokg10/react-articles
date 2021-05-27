@@ -10,7 +10,7 @@ const App = () => (
     <Col xs="12">
       <Header />
     </Col>
-    <Col xs="12">
+    <Col xs="12 min-content-height">
       <Router />
     </Col>
     <Footer />

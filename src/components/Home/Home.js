@@ -4,12 +4,13 @@ import PopularArticles from "../PopularArticles/PopularArticles";
 import RandomArticle from "../RandomArticle/RandomArticle";
 import axios from "axios";
 import { endpoints } from "../../endpoints/endpoints";
+import { Spinner } from "react-bootstrap";
 
 const Home = () => {
   const [articles, setArticlesData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
-  
+
   const fetchArticles = async () => {
     axios
       .get(endpoints.getArticles)
@@ -29,9 +30,17 @@ const Home = () => {
 
   return (
     <>
-      {!isLoading && <Articles articles={articles} />}
-      <PopularArticles articles={articles} />
-      <RandomArticle articles={articles} />
+      {isLoading && (
+        <div className="loader">
+          <Spinner animation="border" variant="primary" />
+          <div>Loading...</div>
+        </div>
+      )}
+      <div className="articles-overflow">
+        {!isLoading && <Articles articles={articles} />}
+        <PopularArticles articles={articles} />
+        <RandomArticle articles={articles} />
+      </div>
     </>
   );
 };

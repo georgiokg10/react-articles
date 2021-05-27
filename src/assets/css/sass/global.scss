@@ -1,22 +1,27 @@
 $background-color: #dddddd;
 $color: #000000;
 
-
 body {
-  overflow-y: scroll;
   overflow-x: hidden;
+  font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma",
+    "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
+}
+
+.min-content-height {
+  min-height: 81vh;
 }
 
 .headerColour {
   background-color: lightskyblue;
 }
 
-.navBarMenu {
+.nav-bar-menu {
   justify-content: space-around;
   align-items: center;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  height: 14vh;
 }
 
 .content {
@@ -30,7 +35,7 @@ body {
   margin-bottom: 10px;
 }
 
-.articleBox {
+.articles-box {
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
@@ -39,12 +44,12 @@ body {
   text-align: center;
 }
 
-.searchBar {
+.search-bar {
   display: flex;
   align-items: center;
 }
 
-.articleImg {
+.articles-img {
   width: 100%;
 }
 
@@ -54,22 +59,28 @@ body {
   text-transform: none !important;
 }
 
-.articleDetailsNavBtn {
+.article-details-nav-btn {
   color: #3fa8ff !important;
   text-align: right;
   cursor: pointer;
   font-weight: bold;
 }
 
-.alignIcons {
+.align-icons {
   display: flex;
   justify-content: center;
   color: #81a5bb;
 }
 
+.loader {
+  text-align: center;
+  padding: 350px;
+}
+
 .footer {
   bottom: 0;
   width: 100%;
-  height: 40px;
+  min-height: 5vh;
   background: #3f3fff;
+  margin-top: auto;
 }

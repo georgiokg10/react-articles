@@ -4,9 +4,9 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const SearchBar = () => {
   return (
-    <Form className="searchBar">
+    <Form className="search-bar">
       <FormControl type="text" placeholder="Search..." className="mr-sm-2" />
-      <SearchIcon />
+      <SearchIcon role="button"/>
     </Form>
   );
 };

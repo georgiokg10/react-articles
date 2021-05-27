@@ -6,7 +6,7 @@ import SearchBar from "./../SearchBar/SearchBar";
 
 const Header = () => (
   <Row className="headerColour">
-    <div className="navBarMenu">
+    <div className="nav-bar-menu">
       <Logo />
       <MenuBar />
       <SearchBar />
