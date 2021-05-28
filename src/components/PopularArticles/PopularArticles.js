@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 
 const PopularArticles = ({articles}) => {
   return (null
-    // <Card className="articles-box">
+    // <Card className="center-box">
     //   <Card.Body>
     //     <Card.Subtitle className="mb-2">
     //       {/* <img src={article.cover_image} alt="" className="articles-img" /> */}

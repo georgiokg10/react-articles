@@ -36,11 +36,11 @@ const Home = () => {
           <div>Loading...</div>
         </div>
       )}
-      <div className="articles-overflow">
+      <>
         {!isLoading && <Articles articles={articles} />}
         <PopularArticles articles={articles} />
         <RandomArticle articles={articles} />
-      </div>
+      </>
     </>
   );
 };

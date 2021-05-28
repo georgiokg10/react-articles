@@ -13,7 +13,7 @@ const Articles = ({articles}) => {
     articles.length > 0 &&
     articles.map((article) => {
       return (
-        <Card className="articles-box" key={article.id}>
+        <Card className="center-box" key={article.id}>
           <Card.Body>
             <Card.Subtitle className="mb-2">
               <img src={article.cover_image} alt="" className="articles-img" />
