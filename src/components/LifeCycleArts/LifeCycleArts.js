@@ -16,7 +16,7 @@ const LifeCycleArts = ({videos}) => {
         <Card className="center-box" key={video.id}>
           <Card.Body>
             <Card.Subtitle className="mb-2">
-              <img src={video.social_image} alt="" className="articles-img" />
+              <img src={video.cover_image ? video.cover_image : video.social_image} alt="" className="articles-img" />
             </Card.Subtitle>
             <Button className="mt-2 mb-3 defaultBtn" variant="contained">
               Product
@@ -35,7 +35,7 @@ const LifeCycleArts = ({videos}) => {
               </div>
               <div className="mr-4" role="button">
                 <VisibilityIcon />
-                <span className="ml-2">{video?.comments_count}</span>
+                <span className="ml-2">{video?.public_reactions_count}</span>
               </div>
               <div className="mr-4" role="button">
                 <ThumbUpAltIcon />

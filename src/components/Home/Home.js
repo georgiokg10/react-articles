@@ -5,6 +5,7 @@ import RandomArticle from "../RandomArticle/RandomArticle";
 import axios from "axios";
 import { endpoints } from "../../endpoints/endpoints";
 import { Spinner } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Home = () => {
   const [articles, setArticlesData] = React.useState([]);
@@ -37,9 +38,17 @@ const Home = () => {
         </div>
       )}
       <>
-        {!isLoading && <Articles articles={articles} />}
-        <PopularArticles articles={articles} />
-        <RandomArticle articles={articles} />
+        {!isLoading && (
+          <Row>
+            <div className="col-8">
+              <Articles articles={articles} />
+            </div>
+            <div className="col-4">
+              <PopularArticles articles={articles} />
+              <RandomArticle articles={articles} />
+            </div>
+          </Row>
+        )}
       </>
     </>
   );

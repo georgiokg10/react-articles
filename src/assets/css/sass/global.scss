@@ -36,12 +36,16 @@ body {
 }
 
 .center-box {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 45%;
   margin-top: 25px;
   margin-bottom: 25px;
   width: 50%;
   text-align: center;
+}
+
+.right-box {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .search-bar {
@@ -51,6 +55,10 @@ body {
 
 .articles-img {
   width: 100%;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 .defaultBtn {
@@ -68,7 +76,6 @@ body {
 
 .align-icons {
   display: flex;
-  justify-content: center;
   color: #81a5bb;
 }
 
@@ -85,9 +92,20 @@ body {
   margin-top: auto;
 }
 
-.galleryImg {
+.gallery-img {
   width: 50%;
   height: 50%;
+}
+
+.popular-post-img {
+  height: 105px;
+  width: 100%;
+}
+
+.popular-posts-box {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 2.5%;
 }
 
 .btnWidth {

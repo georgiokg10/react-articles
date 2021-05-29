@@ -38,7 +38,7 @@ class Gallery extends Component {
       <div className="center-box">
         <img
           src={this.state.picList[this.state.index]}
-          className="galleryImg"
+          className="gallery-img"
         />
         <br />
         <Button
