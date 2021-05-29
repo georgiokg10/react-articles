@@ -35,7 +35,7 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div className="center-box">
+      <div className="center-box ml-auto mr-auto">
         <img
           src={this.state.picList[this.state.index]}
           className="gallery-img"

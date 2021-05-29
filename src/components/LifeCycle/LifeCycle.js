@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import LifeCycleArts from "../LifeCycleArts/LifeCycleArts";
 import PopularArticles from "../PopularArticles/PopularArticles";
 import RandomArticle from "../RandomArticle/RandomArticle";
@@ -37,9 +37,14 @@ const LifeCycle = () => {
         </div>
       )}
       <>
-        {!isLoading && <LifeCycleArts videos={videos} />}
-        <PopularArticles videos={videos} />
-        <RandomArticle videos={videos} />
+        {!isLoading && (
+          <div className="ml-auto mr-auto center-box">
+            <LifeCycleArts videos={videos} />
+          </div>
+        )}
+        {/* <div className="d-flex justify-content-center">
+          <PopularArticles videos={videos} />
+        </div> */}
       </>
     </>
   );
