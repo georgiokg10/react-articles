@@ -1,4 +1,9 @@
-export const beginners = ["beginners", "codenewbie, , challenge, cnc2021", "tutorial"];
+export const beginners = [
+  "beginners",
+  "codenewbie, , challenge, cnc2021",
+  "tutorial"
+];
+
 export const programming_languages = [
   "algorithms",
   "javascript",
@@ -17,6 +22,5 @@ export const programming_languages = [
   "programming",
   "css"
 ];
-export const news = [
-  "news", "competition"
-]
+
+export const news = ["news", "competition"];

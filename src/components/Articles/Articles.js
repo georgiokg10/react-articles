@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import Stats from "../../common/components/Stats";
 import { Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
@@ -22,49 +21,44 @@ const Articles = ({ articles }) => {
           <div>Loading...</div>
         </div>
       )}
-      {
-        <>
-          {articles &&
-            articles.length > 0 &&
-            articles.map((article, idx) => {
-              return (
-                <Card className="center-box" key={idx}>
-                  <Card.Body>
-                    <Card.Subtitle className="mb-2">
-                      <img
-                        src={
-                          article.cover_image
-                            ? article.cover_image
-                            : article.social_image
-                        }
-                        alt=""
-                        role="button"
-                        onClick={() => navigateToArticle(article)}
-                        className="articles-img"
-                      />
-                    </Card.Subtitle>
-                    <Tags tagList={article.tag_list} />
-                    <Card.Title>{article.title}</Card.Title>
-                    <div className="align-icons d-flex justify-content-center mb-2">
-                      <Stats article={article} />
-                    </div>
-                    <Card.Text>{article.description}</Card.Text>
-                    <div className="article-details-nav-btn">
-                      <Button
-                        className="mt-2 mb-3 defaultBtn p-1 mr-2"
-                        variant="contained"
-                        onClick={() => navigateToArticle(article)}
-                      >
-                        READ MORE {">"} 
-                      </Button>
-                      {/* <KeyboardArrowRightIcon className="mb-1" /> */}
-                    </div>
-                  </Card.Body>
-                </Card>
-              );
-            })}
-        </>
-      }
+      {articles &&
+        articles.length > 0 &&
+        articles.map((article, idx) => {
+          return (
+            <Card className="center-box" key={idx}>
+              <Card.Body>
+                <Card.Subtitle className="mb-2">
+                  <img
+                    src={
+                      article.cover_image
+                        ? article.cover_image
+                        : article.social_image
+                    }
+                    alt=""
+                    role="button"
+                    onClick={() => navigateToArticle(article)}
+                    className="articles-img"
+                  />
+                </Card.Subtitle>
+                <Tags tagList={article.tag_list} />
+                <Card.Title>{article.title}</Card.Title>
+                <div className="align-icons d-flex justify-content-center mb-2">
+                  <Stats article={article} />
+                </div>
+                <Card.Text>{article.description}</Card.Text>
+                <div className="article-details-nav-btn">
+                  <Button
+                    className="mt-2 mb-3 defaultBtn p-1 mr-2"
+                    variant="contained"
+                    onClick={() => navigateToArticle(article)}
+                  >
+                    READ MORE {">"}
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          );
+        })}
     </>
   );
 };

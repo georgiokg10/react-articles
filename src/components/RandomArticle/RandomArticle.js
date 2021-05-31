@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Typography } from "@material-ui/core";
 import { Spinner } from "react-bootstrap";
-import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 import Tags from "../../common/components/Tags";
 

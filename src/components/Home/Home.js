@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Articles from "../Articles/Articles";
 import PopularArticles from "../PopularArticles/PopularArticles";
 import RandomArticle from "../RandomArticle/RandomArticle";
@@ -24,16 +24,18 @@ const Home = () => {
   };
 
   const fetchAllArticles = async () => {
-    await getArticles()
-      .then((response) => {
-        const filteredArticles = setFilteredArticles(response?.data);
-        setArticlesData(filteredArticles);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setIsLoading(true);
-      });
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      const resp = await getArticles();
+      const filteredArticles = setFilteredArticles(resp?.data);
+      setArticlesData(filteredArticles);
+      setIsLoading(false);
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
+    }
   };
 
   const bannerArticles = !!articles && articles.slice(0, 3);
@@ -47,22 +49,22 @@ const Home = () => {
     if (location.pathname === "home" || location.pathname === "") {
       return resp;
     }
-    resp.map((article) => {
+    resp.forEach((article) => {
       let foundArticle = {};
       if (location.pathname === "/beginners") {
-        article.tag_list.map((item) => {
+        article.tag_list.forEach((item) => {
           foundArticle = beginners.find((x) => x === item);
           if (foundArticle) return;
         });
       }
       if (location.pathname === "/programming-languages") {
-        article.tag_list.map((item) => {
+        article.tag_list.forEach((item) => {
           foundArticle = programming_languages.find((x) => x === item);
           if (foundArticle) return;
         });
       }
       if (location.pathname === "/news") {
-        article.tag_list.map((item) => {
+        article.tag_list.forEach((item) => {
           foundArticle = news.find((x) => x === item);
           if (foundArticle) return;
         });

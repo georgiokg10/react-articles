@@ -39,6 +39,7 @@ class Gallery extends Component {
         <img
           src={this.state.picList[this.state.index]}
           className="gallery-img"
+          alt=""
         />
         <br />
         <Button
