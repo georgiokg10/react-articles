@@ -6,7 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import Router from "./routes/Router";
 
 const App = () => (
-  <>
+  <React.StrictMode>
     <Col xs="12">
       <Header />
     </Col>
@@ -14,7 +14,7 @@ const App = () => (
       <Router />
     </Col>
     <Footer />
-  </>
+  </React.StrictMode>
 );
 
 export default App;
