@@ -6,15 +6,15 @@ import { Row, Col } from "react-bootstrap";
 import Router from "./routes/Router";
 
 const App = () => (
-  <Row>
+  <>
     <Col xs="12">
       <Header />
     </Col>
-    <Col xs="12 min-content-height">
+    <Col xs="row min-content-height pr-0 pl-0">
       <Router />
     </Col>
     <Footer />
-  </Row>
+  </>
 );
 
 export default App;

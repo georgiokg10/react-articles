@@ -1,20 +1,40 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography } from "@material-ui/core";
-import Stats from "../../common/Stats";
+import { Spinner } from "react-bootstrap";
+import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
+import Tags from "../../common/components/Tags";
 
-const RandomArticle = ({ articles }) => {
+const RandomArticle = ({ articles, props }) => {
   const idx = !!articles && Math.floor(Math.random() * articles.length);
 
   const randomPost = articles[idx];
+  const articlesHistory = useHistory();
+
+  const navigateToArticle = () => {
+    articlesHistory.push(`/article/${randomPost.id}`);
+  };
 
   return (
-    <div className="right-box popular-posts-box">
-      <Typography color="primary" variant="h6" className="border-bottom mb-4">
+    <>
+      <Typography
+        color="primary"
+        variant="h6"
+        className="border-bottom mb-4 mt-3"
+      >
         RANDOM POST
       </Typography>
+
+      {!randomPost && (
+        <div className="text-center">
+          <Spinner animation="border" variant="primary" />
+          <div>Loading...</div>
+        </div>
+      )}
+
       {randomPost && (
-        <div className="row mb-4" role="button">
-          <div className="col-3">
+        <div className="row mb-4">
+          <div className="col-1">
             <img
               src={
                 randomPost.cover_image
@@ -22,18 +42,22 @@ const RandomArticle = ({ articles }) => {
                   : randomPost.social_image
               }
               alt=""
-              className="popular-post-img"
+              className="random-post-img"
+              role="button"
+              onClick={() => navigateToArticle()}
             />
           </div>
-          <div className="col-8 ml-3">
-            <div className="mb-3">{randomPost.title}</div>
-            <div className="align-icons">
-              <Stats article={randomPost} />
-            </div>
+          {randomPost?.tag_list.length > 0 && <div className="text-center">
+            <Tags tagList={randomPost.tag_list } />
+          </div>}
+          <div className="font-weight-bold ml-3 mt-3 w-100">
+            <span role="button" onClick={() => navigateToArticle()}>
+              {randomPost.title}
+            </span>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

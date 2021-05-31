@@ -7,6 +7,19 @@ body {
     "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
 }
 
+.card-box {
+  img {
+    width: 100%;
+  }
+}
+
+.article-banner {
+  img {
+    width: 100%;
+    height: max-content;
+  }
+}
+
 .min-content-height {
   min-height: 81vh;
 }
@@ -21,7 +34,10 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  height: 14vh;
+}
+
+.nav-bar-img {
+  max-width: 110px;
 }
 
 .content {
@@ -48,6 +64,10 @@ body {
   margin-bottom: 25px;
 }
 
+.font-size-ten {
+  font-size: 10pt;
+}
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -59,6 +79,11 @@ body {
 
 .ml-auto {
   margin-left: auto;
+}
+
+.avatar-small {
+  width: 25px !important;
+  height: 24px !important;
 }
 
 .mr-auto {
@@ -83,17 +108,26 @@ body {
   color: #81a5bb;
 }
 
+.full-width-img {
+  width: 100%;
+}
+
 .loader {
   text-align: center;
   padding: 350px;
 }
 
 .footer {
-  bottom: 0;
+  position: absolute;
   width: 100%;
-  min-height: 5vh;
   background: #3f3fff;
   margin-top: auto;
+}
+
+.footer-ico {
+  width: 3%;
+  margin-left: auto;
+  float: right;
 }
 
 .gallery-img {
@@ -102,16 +136,63 @@ body {
 }
 
 .popular-post-img {
-  height: 105px;
+  height: 58px;
   width: 100%;
 }
 
 .popular-posts-box {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: 2.5%;
+  height: 400px;
 }
 
-.btnWidth {
+.intro-img {
+  max-width: 450px;
+}
+
+.random-post-img {
+  width: 450px !important;
+}
+
+.random-post-btn {
+  height: 30px;
+}
+
+.btn-width {
   width: 125px;
+}
+
+.mt-30 {
+  margin-top: 30%;
+}
+
+.overflow-hidden {
+  overflow-y: hidden;
+}
+
+.h-67 {
+  height: 67px;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.footer-font {
+  color: #fff;
+  font-family: "Apple Chancery", cursive;
+}
+
+.b-s {
+  color: "#FFF";
+  background-color: "red";
+  font-size: 20;
+}
+
+.banner-title {
+  position: absolute;
+  margin-left: 160px;
+  top: 89%;
+  font-size: 15pt;
+  color: #24e6bb;
+  font-weight: bold;
+  background-color: #4a3434;
 }

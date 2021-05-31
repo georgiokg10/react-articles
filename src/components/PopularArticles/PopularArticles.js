@@ -1,25 +1,50 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect,  } from "react";
 import { Typography } from "@material-ui/core";
-import Stats from "../../common/Stats";
+import Stats from "../../common/components/Stats";
+import { Spinner } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const PopularArticles = ({ articles }) => {
+  const articlesHistory = useHistory();
+
+  const navigateToArticle = (article) => {
+    articlesHistory.push(`/article/${article.id}`);
+  };
+
   const filteredPopularArticles =
     !!articles &&
     articles.sort((x, y) => {
       return y.positive_reactions_count - x.positive_reactions_count;
     });
-  console.log(filteredPopularArticles);
+
+  const mostPopularArticles = !!filteredPopularArticles && filteredPopularArticles.slice(0, 3);
 
   return (
-    <div className="right-box popular-posts-box">
-      <Typography color="primary" variant="h6" className="border-bottom mb-4">
+    <>
+      <Typography
+        color="primary"
+        variant="h6"
+        className="border-bottom mb-4 mt-3"
+      >
         POPULAR POSTS
       </Typography>
-      {articles &&
-        articles.length > 0 &&
-        articles.map((article) => {
+      <div
+        className={
+          articles && articles?.length > 0
+            ? "right-box popular-posts-box"
+            : "overflow-hidden"
+        }
+      >
+        {!articles.length && (
+          <div className="text-center">
+            <Spinner animation="border" variant="primary" />
+            <div>Loading...</div>
+          </div>
+        )}
+
+        {mostPopularArticles.map((article) => {
           return (
-            <div className="row mb-4" role="button" key={article.id}>
+            <div className="row mb-4" key={article.id}>
               <div className="col-3">
                 <img
                   src={
@@ -28,19 +53,28 @@ const PopularArticles = ({ articles }) => {
                       : article.social_image
                   }
                   alt=""
+                  role="button"
+                  onClick={() => navigateToArticle(article)}
                   className="popular-post-img"
                 />
               </div>
-              <div className="col-8 ml-3">
-                <div className="mb-3">{article.title}</div>
-                <div className="align-icons">
+              <div className="col-9 ">
+                <div
+                  className="mb-3 font-weight-bold"
+                  role="button"
+                  onClick={() => navigateToArticle(article)}
+                >
+                  {article.title}
+                </div>
+                <div className="align-icons ">
                   <Stats article={article} />
                 </div>
               </div>
             </div>
           );
         })}
-    </div>
+      </div>
+    </>
   );
 };
 

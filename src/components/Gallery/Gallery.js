@@ -42,14 +42,14 @@ class Gallery extends Component {
         />
         <br />
         <Button
-          className="mt-2 mb-3 mr-5 btnWidth"
+          className="mt-2 mb-3 mr-5 btn-width"
           variant="contained"
           onClick={this.onClickPrevious}
         
           > Previous
         </Button>
         <Button
-          className="mt-2 mb-3 btnWidth"
+          className="mt-2 mb-3 btn-width"
           variant="contained"
           color="primary"
           onClick={this.onClickNext}
