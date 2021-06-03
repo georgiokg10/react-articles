@@ -6,7 +6,7 @@ const Footer = () =>
     <span className="footer-font mt-4 ml-3">Georgios Kontogeorgos (DG11), </span>
     <span className="footer-font mt-4 ml-3">Marios Katsanos (DG8), </span>
     <span className="footer-font mt-4 ml-3">Margarita Syntila (DG1) </span>
-    <img src={hedgehog} alt="" className="footer-ico"></img>
+    {/* <img src={hedgehog} alt="" className="footer-ico"></img> */}
   </div>
 
 export default Footer;

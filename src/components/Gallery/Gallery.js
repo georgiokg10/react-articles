@@ -50,7 +50,7 @@ class Gallery extends Component {
       <div className="center-box ml-auto mr-auto">
         <img
           src={this.state.picList[this.state.index]}
-          className="gallery-img"
+          className="gallery-img mb-4"
           alt=""
         />
         <br />

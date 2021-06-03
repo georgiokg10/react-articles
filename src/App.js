@@ -9,7 +9,7 @@ const App = () => (
     <div className="col-12">
       <Header />
     </div>
-    <div className="col min-content-height pr-0 pl-0">
+    <div className="col pr-0 pl-0">
       <Router />
     </div>
     <Footer />
