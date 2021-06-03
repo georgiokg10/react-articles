@@ -1,14 +1,26 @@
 import React, { Component } from "react";
-import bar from "../../assets/images/bar.png";
-import train from "../../assets/images/train.png";
-import restaurant from "../../assets/images/restaurant.png";
 import Button from "@material-ui/core/Button";
+import { getArticles } from "../../common/utils/services";
 
 class Gallery extends Component {
-  state = {
-    index: 0,
-    picList: [bar, train, restaurant],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      picList: [],
+    };
+  }
+
+  componentDidMount() {
+    debugger
+    getArticles()
+      .then(res => res.data)
+      .then(data => {
+        data.map(item => {
+          this.setState({ picList: [...this.state.picList, item.social_image] })
+        })
+      });
+  }
 
   onClickNext = () => {
     if (this.state.index + 1 === this.state.picList.length) {
