@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { getArticles } from "../../common/utils/services";
-
+import { Spinner } from "react-bootstrap";
 class Gallery extends Component {
   constructor(props) {
     super(props);
@@ -12,13 +12,14 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    debugger
     getArticles()
-      .then(res => res.data)
-      .then(data => {
-        data.map(item => {
-          this.setState({ picList: [...this.state.picList, item.social_image] })
-        })
+      .then((res) => res.data)
+      .then((data) => {
+        data.map((item) => {
+          this.setState({
+            picList: [...this.state.picList, item.social_image],
+          });
+        });
       });
   }
 
@@ -47,29 +48,39 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div className="center-box ml-auto mr-auto">
-        <img
-          src={this.state.picList[this.state.index]}
-          className="gallery-img mb-4"
-          alt=""
-        />
-        <br />
-        <Button
-          className="mt-2 mb-3 mr-5 btn-width"
-          variant="contained"
-          onClick={this.onClickPrevious}
-        
-          > Previous
-        </Button>
-        <Button
-          className="mt-2 mb-3 btn-width"
-          variant="contained"
-          color="primary"
-          onClick={this.onClickNext}
-        >
-          Next
-        </Button>
-      </div>
+      <>
+        {!this.state.picList.length && (
+          <div className="loader">
+            <Spinner animation="border" variant="primary" />
+            <div>Loading...</div>
+          </div>
+        )}
+        {this.state.picList.length && (
+          <div className="center-box ml-auto mr-auto mt-200">
+            <img
+              src={this.state.picList[this.state.index]}
+              className="gallery-img mb-4"
+              alt=""
+            />
+            <br />
+            <Button
+              className="mt-2 mb-3 mr-5 btn-width"
+              variant="contained"
+              onClick={this.onClickPrevious}
+            >
+              Previous
+            </Button>
+            <Button
+              className="mt-2 mb-3 btn-width"
+              variant="contained"
+              color="primary"
+              onClick={this.onClickNext}
+            >
+              Next
+            </Button>
+          </div>
+        )}
+      </>
     );
   }
 }

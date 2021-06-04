@@ -1,17 +1,18 @@
 import React from "react";
-import Logo from "./../Logo/Logo";
+import hedgehog from "./../../assets/images/hedgehog.jpg";
 import MenuBar from "./../MenuBar/MenuBar";
 import SearchBar from "./../SearchBar/SearchBar";
 
 const Header = () => {
-
   return (
-    <div className="row headerColour h-67">
-      <div className="nav-bar-menu">
-        <Logo />
-        <MenuBar />
-        <SearchBar />
+    <div className="header">
+      <div className="row headerColour">
+        <div className="nav-bar-menu">
+          <MenuBar />
+          <SearchBar />
+        </div>
       </div>
+      {/* <img src={hedgehog} alt="" className="footer-ico"></img> */}
     </div>
   );
 };

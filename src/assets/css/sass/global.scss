@@ -2,15 +2,32 @@ $background-color: #dddddd;
 $color: #000000;
 
 body {
+  margin: 0;
+  height: 100%;
   overflow-x: hidden;
-  font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma",
-    "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
 }
 
 .card-box {
   img {
     width: 100%;
   }
+}
+
+.overflow-scroll {
+  overflow-y: scroll;
 }
 
 .article-banner {
@@ -114,18 +131,32 @@ body {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
+  top: auto;
   background: #3f3fff;
-  margin-top: auto;
   bottom: 0;
+  position: absolute;
 }
 
 .footer-ico {
   width: 3%;
   margin-left: auto;
   float: right;
+}
+
+.mt-67 {
+  margin-top: 67px;
+}
+
+.mt-200 {
+  margin-top: 200px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .gallery-img {
@@ -162,12 +193,9 @@ body {
   margin-top: 30%;
 }
 
-.overflow-hidden {
-  overflow-y: hidden;
-}
-
-.h-67 {
-  height: 67px;
+.nav-items {
+  width: max-content;
+  margin-left: 200px;
 }
 
 .justify-content-between {

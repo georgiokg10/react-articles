@@ -3,6 +3,7 @@ import { Typography } from "@material-ui/core";
 import { Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import Tags from "../../common/components/Tags";
+import { Container, Row, Col } from "react-bootstrap";
 
 const RandomArticle = ({ articles, props }) => {
   const idx = !!articles && Math.floor(Math.random() * articles.length);
@@ -32,8 +33,8 @@ const RandomArticle = ({ articles, props }) => {
       )}
 
       {randomPost && (
-        <div className="row mb-4">
-          <div className="col-1">
+        <Row className="row mb-4">
+          <Col className="col-1">
             <img
               src={
                 randomPost.cover_image
@@ -45,7 +46,7 @@ const RandomArticle = ({ articles, props }) => {
               role="button"
               onClick={() => navigateToArticle()}
             />
-          </div>
+          </Col>
           {randomPost?.tag_list.length > 0 && <div className="text-center">
             <Tags tagList={randomPost.tag_list } />
           </div>}
@@ -54,7 +55,7 @@ const RandomArticle = ({ articles, props }) => {
               {randomPost.title}
             </span>
           </div>
-        </div>
+        </Row>
       )}
     </>
   );

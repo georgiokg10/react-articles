@@ -89,7 +89,7 @@ const Home = () => {
       {!isLoading && error && <div className="text-danger">{error}</div>}
 
       {!isLoading && (
-        <div className="justify-content-between">
+        <div className="justify-content-between mt-67">
           <div className="col-12 d-flex">
             {bannerArticles.length > 0 &&
               bannerArticles.map((bannerArticle) => {

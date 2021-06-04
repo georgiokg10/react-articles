@@ -14,7 +14,7 @@ const Articles = ({ articles }) => {
   };
 
   return (
-    <>
+    <div>
       {!articles.length && (
         <div className="text-center mt-30">
           <Spinner animation="border" variant="primary" />
@@ -59,7 +59,7 @@ const Articles = ({ articles }) => {
             </Card>
           );
         })}
-    </>
+    </div>
   );
 };
 
