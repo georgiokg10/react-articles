@@ -3,6 +3,7 @@ import { Typography } from "@material-ui/core";
 import Stats from "../../common/components/Stats";
 import { Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { Row } from "react-bootstrap";
 
 const PopularArticles = ({ articles }) => {
   const [foundArticle, setFoundArticle] = React.useState(null);
@@ -33,13 +34,7 @@ const PopularArticles = ({ articles }) => {
       >
         POPULAR POSTS
       </Typography>
-      <div
-        className={
-          articles && articles?.length > 0
-            ? "right-box popular-posts-box"
-            : "overflow-hidden"
-        }
-      >
+      <Row className="right-box popular-posts-box">
         {!articles.length && (
           <div className="text-center">
             <Spinner animation="border" variant="primary" />
@@ -49,8 +44,8 @@ const PopularArticles = ({ articles }) => {
 
         {mostPopularArticles.map((article, id) => {
           return (
-            <div
-              className="row mb-4"
+            <Row
+              className="mb-4"
               key={id}
               style={{
                 backgroundColor:
@@ -74,7 +69,7 @@ const PopularArticles = ({ articles }) => {
                   className="popular-post-img"
                 />
               </div>
-              <div className="col-9 ">
+              <div className="col-9">
                 <div
                   className="mb-3 font-weight-bold"
                   role="button"
@@ -86,10 +81,10 @@ const PopularArticles = ({ articles }) => {
                   <Stats article={article} />
                 </div>
               </div>
-            </div>
+            </Row>
           );
         })}
-      </div>
+      </Row>
     </>
   );
 };

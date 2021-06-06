@@ -1,7 +1,7 @@
 export const beginners = [
   "beginners",
   "codenewbie, , challenge, cnc2021",
-  "tutorial"
+  "tutorial",
 ];
 
 export const programming_languages = [
@@ -20,7 +20,7 @@ export const programming_languages = [
   "gradle",
   "kotlin",
   "programming",
-  "css"
+  "css",
 ];
 
 export const news = ["news", "competition"];

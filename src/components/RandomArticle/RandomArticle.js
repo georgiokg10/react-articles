@@ -33,7 +33,7 @@ const RandomArticle = ({ articles, props }) => {
       )}
 
       {randomPost && (
-        <Row className="row mb-4">
+        <Row className="mb-4">
           <Col className="col-1">
             <img
               src={

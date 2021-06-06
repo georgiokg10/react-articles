@@ -14,37 +14,47 @@ import { useHistory } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 
-const Home = (props) => {
+const Home = () => {
   const [articles, setArticlesData] = React.useState([]);
+  const [bannerArticles, setBannerArticles] = React.useState([]);
+  const [combinedArticles, setCombinedArticles] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const location = useLocation();
   const articlesHistory = useHistory();
 
+  useEffect(() => {
+    const fetchAllArticles = async () => {
+      setError(null);
+      setIsLoading(true);
+
+      try {
+        const resp = await getArticles();
+        const filteredArticles = setFilteredArticles(resp?.data);
+        setArticlesData(filteredArticles);
+        setHomeArticles(filteredArticles);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error);
+        setIsLoading(false);
+      }
+    };
+    fetchAllArticles();
+  }, [location]);
+
   const navigateToArticle = (article) => {
     articlesHistory.push(`/article/${article.id}`);
   };
 
-  const fetchAllArticles = async () => {
-    setError(null);
-    setIsLoading(true);
+  const setHomeArticles = (articles) => {
+    const bannerPosts = !!articles && articles.slice(0, 3);
+    setBannerArticles(bannerPosts);
 
-    try {
-      const resp = await getArticles();
-      const filteredArticles = setFilteredArticles(resp?.data);
-      setArticlesData(filteredArticles);
-      setIsLoading(false);
-    } catch (error) {
-      setError(error);
-      setIsLoading(false);
-    }
+    const combinedArticles =
+      !!articles &&
+      articles.filter((article) => !bannerPosts.includes(article));
+    setCombinedArticles(combinedArticles);
   };
-
-  const bannerArticles = !!articles && articles.slice(0, 3);
-
-  const combinedArticles =
-    !!articles &&
-    articles.filter((article) => !bannerArticles.includes(article));
 
   const setFilteredArticles = (resp) => {
     let filteredTaggedArticles = [];
@@ -75,10 +85,6 @@ const Home = (props) => {
     });
     return filteredTaggedArticles;
   };
-
-  useEffect(() => {
-    fetchAllArticles();
-  }, [location.pathname]);
 
   return (
     <>

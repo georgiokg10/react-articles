@@ -40,10 +40,13 @@ const Articles = ({ articles }) => {
                   />
                 </Card.Subtitle>
                 <Tags tagList={article.tag_list} />
-                <Card.Title onClick={() => navigateToArticle(article)} role="button">
+                <Card.Title
+                  onClick={() => navigateToArticle(article)}
+                  role="button"
+                >
                   {article.title}
                 </Card.Title>
-                <div className="align-icons d-flex justify-content-center mb-2">
+                <div className="align-icons justify-content-center d-flex mb-2">
                   <Stats article={article} />
                 </div>
                 <Card.Text>{article.description}</Card.Text>

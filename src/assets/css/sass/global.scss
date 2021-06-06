@@ -10,7 +10,7 @@ body {
     sans-serif;
 }
 
-.nav-link.active  {
+.nav-link.active {
   font-weight: bold;
   border-top: 1px solid #ffffff;
 }
@@ -28,6 +28,10 @@ body {
   img {
     width: 100%;
   }
+}
+
+.place-content-center {
+  place-content: center;
 }
 
 .overflow-scroll {

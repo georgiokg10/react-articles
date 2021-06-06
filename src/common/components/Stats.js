@@ -7,9 +7,13 @@ import Avatar from "@material-ui/core/Avatar";
 
 const Stats = ({ article }) => {
   return (
-    <div className="font-size-ten d-flex">
+    <div className="font-size-ten d-flex row place-content-center">
       <div className="d-flex mr-2">
-        <Avatar alt={article?.user?.name} src={article?.user?.profile_image} className="avatar-small mr-2"/>
+        <Avatar
+          alt={article?.user?.name}
+          src={article?.user?.profile_image}
+          className="avatar-small mr-2"
+        />
         {article?.user?.name}
       </div>
       <div className="mr-4">
