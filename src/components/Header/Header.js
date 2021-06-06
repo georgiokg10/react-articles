@@ -1,5 +1,4 @@
 import React from "react";
-import hedgehog from "./../../assets/images/hedgehog.jpg";
 import MenuBar from "./../MenuBar/MenuBar";
 import SearchBar from "./../SearchBar/SearchBar";
 
@@ -12,7 +11,6 @@ const Header = () => {
           <SearchBar />
         </div>
       </div>
-      {/* <img src={hedgehog} alt="" className="footer-ico"></img> */}
     </div>
   );
 };

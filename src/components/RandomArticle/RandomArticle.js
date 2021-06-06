@@ -3,7 +3,7 @@ import { Typography } from "@material-ui/core";
 import { Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import Tags from "../../common/components/Tags";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const RandomArticle = ({ articles, props }) => {
   const idx = !!articles && Math.floor(Math.random() * articles.length);
@@ -47,9 +47,11 @@ const RandomArticle = ({ articles, props }) => {
               onClick={() => navigateToArticle()}
             />
           </Col>
-          {randomPost?.tag_list.length > 0 && <div className="text-center">
-            <Tags tagList={randomPost.tag_list } />
-          </div>}
+          {randomPost?.tag_list.length > 0 && (
+            <div className="text-center">
+              <Tags tagList={randomPost.tag_list} />
+            </div>
+          )}
           <div className="font-weight-bold ml-3 mt-3 w-100">
             <span role="button" onClick={() => navigateToArticle()}>
               {randomPost.title}

@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 
 const Tags = ({ tagList }) => {
-    console.log(tagList)
+
   return (
     <>
       {tagList?.length > 0 &&
@@ -12,6 +12,7 @@ const Tags = ({ tagList }) => {
               <Button
                 className="mt-2 mb-3 defaultBtn p-1 mr-2"
                 variant="contained"
+                disabled
               >
                 {tag}
               </Button>

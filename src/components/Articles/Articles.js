@@ -26,7 +26,7 @@ const Articles = ({ articles }) => {
         articles.map((article, idx) => {
           return (
             <Card className="center-box" key={idx}>
-              <Card.Body>
+              <Card.Body className="mb-4">
                 <Card.Subtitle className="mb-2">
                   <img
                     src={
@@ -35,13 +35,14 @@ const Articles = ({ articles }) => {
                         : article.social_image
                     }
                     alt=""
-                    role="button"
                     onClick={() => navigateToArticle(article)}
                     className="articles-img"
                   />
                 </Card.Subtitle>
                 <Tags tagList={article.tag_list} />
-                <Card.Title>{article.title}</Card.Title>
+                <Card.Title onClick={() => navigateToArticle(article)} role="button">
+                  {article.title}
+                </Card.Title>
                 <div className="align-icons d-flex justify-content-center mb-2">
                   <Stats article={article} />
                 </div>

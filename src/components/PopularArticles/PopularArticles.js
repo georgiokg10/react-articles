@@ -5,9 +5,13 @@ import { Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 const PopularArticles = ({ articles }) => {
+  const [foundArticle, setFoundArticle] = React.useState(null);
+
+  const selectedArticle = window.location.pathname.split("/")[2];
   const articlesHistory = useHistory();
 
   const navigateToArticle = (article) => {
+    setFoundArticle(article);
     articlesHistory.push(`/article/${article.id}`);
   };
 
@@ -17,7 +21,8 @@ const PopularArticles = ({ articles }) => {
       return y.positive_reactions_count - x.positive_reactions_count;
     });
 
-  const mostPopularArticles = !!filteredPopularArticles && filteredPopularArticles.slice(0, 3);
+  const mostPopularArticles =
+    !!filteredPopularArticles && filteredPopularArticles.slice(0, 3);
 
   return (
     <>
@@ -42,10 +47,21 @@ const PopularArticles = ({ articles }) => {
           </div>
         )}
 
-        {mostPopularArticles.map((article) => {
+        {mostPopularArticles.map((article, id) => {
           return (
-            <div className="row mb-4" key={article.id}>
-              <div className="col-3">
+            <div
+              className="row mb-4"
+              key={id}
+              style={{
+                backgroundColor:
+                  foundArticle === article ||
+                  (selectedArticle &&
+                    selectedArticle.toString() === article.id.toString())
+                    ? "#beede5"
+                    : "",
+              }}
+            >
+              <div className="col-3 popular-img-center">
                 <img
                   src={
                     article.cover_image

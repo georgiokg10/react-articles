@@ -11,8 +11,10 @@ import {
   news,
 } from "../../common/utils/constants";
 import { useHistory } from "react-router-dom";
+import { Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-const Home = () => {
+const Home = (props) => {
   const [articles, setArticlesData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -89,18 +91,18 @@ const Home = () => {
       {!isLoading && error && <div className="text-danger">{error}</div>}
 
       {!isLoading && (
-        <div className="justify-content-between mt-67">
-          <div className="col-12 d-flex">
+        <div className="justify-content-between mt-90">
+          <div className="col-12 d-flex pl-0 pr-0">
             {bannerArticles.length > 0 &&
               bannerArticles.map((bannerArticle) => {
                 return (
-                  <div
-                    className="row"
+                  <Row
                     key={bannerArticle.id}
                     role="button"
+                    className="ml-0 mr-0 "
                     onClick={() => navigateToArticle(bannerArticle)}
                   >
-                    <div className="card-box">
+                    <Card className="ml-1 mr-1 banner-bg ">
                       <img
                         src={
                           bannerArticle.cover_image
@@ -108,11 +110,11 @@ const Home = () => {
                             : bannerArticle.social_image
                         }
                         alt=""
-                        className=""
+                        className="w-100"
                       />
                       <div className="banner-title">{bannerArticle.title}</div>
-                    </div>
-                  </div>
+                    </Card>
+                  </Row>
                 );
               })}
           </div>

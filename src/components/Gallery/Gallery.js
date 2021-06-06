@@ -34,6 +34,7 @@ class Gallery extends Component {
       });
     }
   };
+  
   onClickPrevious = () => {
     if (this.state.index - 1 === -1) {
       this.setState({
