@@ -2,7 +2,7 @@ import React from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import SearchIcon from "@material-ui/icons/Search";
 import { Paper } from "@material-ui/core";
-import {  Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { getArticles } from "../../common/utils/services";
 import { useHistory } from "react-router-dom";
 import { Card } from "react-bootstrap";
@@ -41,7 +41,7 @@ const SearchBar = () => {
     setFoundArticles(results);
   }, [searchResult, articles]);
 
-  
+
   React.useEffect(() => {
     if (location) {
       setSearchResult("");
@@ -96,12 +96,12 @@ const SearchBar = () => {
           </InputGroup>
         </Form.Group>
       </Form.Row>
-      <div className={foundArticles.length > 2 ? "search-list" : "search-list hidden-scroll"}>
+      <div className={foundArticles.length > 2 ? "search-list" : foundArticles.length === 0 ? "hidden-scroll" : "search-list hidden-scroll"}>
         {searchResult &&
           foundArticles?.length > 0 &&
           foundArticles.map((article, idx) => {
             return (
-              <Card className="p-2" key={idx}>
+              <Card key={idx}>
                 <Paper
                   className="search-list-item row ml-0"
                   key={idx}
