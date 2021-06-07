@@ -26,7 +26,20 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+}
+
+.card-box {
+  img {
+    width: 100% !important;
+  }
+}
+
+.article-banner {
+  img {
+    width: 100% !important;
+    height: max-content !important;
+  }
 }
 
 .place-content-center {
@@ -209,6 +222,7 @@ img {
 }
 
 .random-post-img {
+  max-width: max-content;
   width: 450px !important;
 }
 
