@@ -40,7 +40,7 @@ const Home = () => {
       }
     };
     fetchAllArticles();
-  }, [location]);
+  }, [location.pathname]);
 
   const navigateToArticle = (article) => {
     articlesHistory.push(`/article/${article.id}`);
