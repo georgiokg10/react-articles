@@ -6,6 +6,7 @@ import {  Col } from "react-bootstrap";
 import { getArticles } from "../../common/utils/services";
 import { useHistory } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchResult, setSearchResult] = React.useState("");
@@ -14,6 +15,8 @@ const SearchBar = () => {
   const [error, setError] = React.useState(null);
   const [foundArticles, setFoundArticles] = React.useState([]);
   const [selectedArticle, setSelectedArticle] = React.useState(null);
+
+  const location = useLocation();
 
   const fetchAllArticles = async () => {
     setError(error);
@@ -37,6 +40,14 @@ const SearchBar = () => {
     }
     setFoundArticles(results);
   }, [searchResult, articles]);
+
+  
+  React.useEffect(() => {
+    if (location) {
+      setSearchResult("");
+    }
+  }, [location]);
+
 
   React.useEffect(() => {
     if (foundArticles.length > 0) {
@@ -85,7 +96,7 @@ const SearchBar = () => {
           </InputGroup>
         </Form.Group>
       </Form.Row>
-      <div className={foundArticles.length > 1 ? "search-list" : "search-list hidden-scroll"}>
+      <div className={foundArticles.length > 2 ? "search-list" : "search-list hidden-scroll"}>
         {searchResult &&
           foundArticles?.length > 0 &&
           foundArticles.map((article, idx) => {
