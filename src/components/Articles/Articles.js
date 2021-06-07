@@ -35,7 +35,6 @@ const Articles = ({ articles }) => {
                         : article.social_image
                     }
                     alt=""
-                    onClick={() => navigateToArticle(article)}
                     className="articles-img"
                   />
                 </Card.Subtitle>
