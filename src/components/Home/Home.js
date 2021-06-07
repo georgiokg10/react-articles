@@ -125,7 +125,7 @@ const Home = () => {
               })}
           </div>
           <div className="row pr-4">
-            <div className="col-9">
+            <div className="col-9 mb-5">
               <Articles articles={combinedArticles} />
             </div>
             <div className="col-3">

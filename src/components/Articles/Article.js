@@ -62,7 +62,7 @@ const Article = (props) => {
           </div>
           <Row className="justify-content-between">
             <Col xs="9">
-              <Card.Body className="ml-auto mr-auto w-50 mt-5">
+              <Card.Body className="ml-auto mr-auto w-50 mt-5 mb-5">
                 <div className="text-center">
                   <Tags tagList={selectedArticle?.tags} />
                 </div>
