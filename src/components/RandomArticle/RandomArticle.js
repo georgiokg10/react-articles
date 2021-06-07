@@ -42,7 +42,7 @@ const RandomArticle = ({ articles, props }) => {
                   : randomPost.social_image
               }
               alt=""
-              className="random-post-img"
+              className="random-post-img pr-5"
               role="button"
               onClick={() => navigateToArticle()}
             />
