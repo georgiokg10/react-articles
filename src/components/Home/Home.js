@@ -9,7 +9,7 @@ import {
   beginners,
   programming_languages,
   news,
-} from "../../common/utils/constants";
+} from "../../common/constants/constants";
 import { useHistory } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import { Card } from "react-bootstrap";

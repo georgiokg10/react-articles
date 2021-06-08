@@ -58,7 +58,7 @@ const Article = (props) => {
       {!isLoading && (
         <>
           <div className="article-banner mt-90">
-            <img src={selectedArticle?.cover_image} alt="" className="" />
+            <img src={selectedArticle?.cover_image ? selectedArticle.cover_image : selectedArticle?.social_image} alt="" className="" />
           </div>
           <Row className="justify-content-between">
             <Col xs="9">
