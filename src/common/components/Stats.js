@@ -1,9 +1,9 @@
 import React from "react";
 import DateRangetIcon from "@material-ui/icons/DateRange";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
-import VisibilityIcon from "@material-ui/icons/Visibility";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import Avatar from "@material-ui/core/Avatar";
+import AlarmOnIcon from '@material-ui/icons/AlarmOn';
 
 const Stats = ({ article }) => {
   return (
@@ -31,15 +31,15 @@ const Stats = ({ article }) => {
         </div>
         <div className="mr-4">
           <span className="mr-2">
-            <VisibilityIcon />
-          </span>
-          {article?.comments_count}
-        </div>
-        <div className="mr-4">
-          <span className="mr-2">
             <ThumbUpAltIcon />
           </span>
           {article?.positive_reactions_count}
+        </div>
+        <div className="mr-4">
+          <span className="mr-2">
+            <AlarmOnIcon />
+          </span>
+          {article?.reading_time_minutes === 1 ? article?.reading_time_minutes + ' min' : article?.reading_time_minutes + ' mins'}
         </div>
       </div>}
     </>
