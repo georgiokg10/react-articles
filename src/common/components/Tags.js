@@ -1,7 +1,14 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
 
 const Tags = ({ tagList }) => {
+  const articlesHistory = useHistory();
+
+  const navigateToTaggedArticle = (tag) => {
+    articlesHistory.push(`/tagged/${tag}`);
+  };
+
   return (
     <>
       {tagList?.length > 0 &&
@@ -11,7 +18,7 @@ const Tags = ({ tagList }) => {
               <Button
                 className="mt-2 mb-3 defaultBtn p-1 mr-2"
                 variant="contained"
-                disabled
+                onClick={() => navigateToTaggedArticle(tag)}
               >
                 {tag}
               </Button>

@@ -22,6 +22,7 @@ const Home = () => {
   const [error, setError] = React.useState(null);
   const location = useLocation();
   const articlesHistory = useHistory();
+  const tagLocation = location.pathname.includes("tagged");
 
   useEffect(() => {
     const fetchAllArticles = async () => {
@@ -50,9 +51,9 @@ const Home = () => {
     const bannerPosts = !!articles && articles.slice(0, 3);
     setBannerArticles(bannerPosts);
 
-    const combinedArticles =
+    const combinedArticles = !tagLocation ?
       !!articles &&
-      articles.filter((article) => !bannerPosts.includes(article));
+      articles.filter((article) => !bannerPosts.includes(article)) : articles;
     setCombinedArticles(combinedArticles);
   };
 
@@ -61,7 +62,7 @@ const Home = () => {
     if (location.pathname === "home" || location.pathname === "") {
       return resp;
     }
-    resp.forEach((article) => {
+    resp.map((article) => {
       let foundArticle = {};
       if (location.pathname === "/beginners") {
         article.tag_list.forEach((item) => {
@@ -81,7 +82,13 @@ const Home = () => {
           if (foundArticle) return;
         });
       }
-      if (foundArticle) filteredTaggedArticles.push(article);
+      if (tagLocation) {
+        const selectedTag = location.pathname.split("/").pop();
+        if (article.tag_list.includes((selectedTag))) {
+          filteredTaggedArticles.push(article);
+        };
+      }
+      if (foundArticle && !tagLocation) filteredTaggedArticles.push(article);
     });
     return filteredTaggedArticles;
   };
@@ -99,7 +106,7 @@ const Home = () => {
       {!isLoading && (
         <div className="justify-content-between mt-90">
           <div className="col-12 d-flex pl-0 pr-0">
-            {bannerArticles.length > 0 &&
+            {!tagLocation && bannerArticles.length > 0 &&
               bannerArticles.map((bannerArticle) => {
                 return (
                   <Row
@@ -128,10 +135,10 @@ const Home = () => {
             <div className="col-9 mb-5">
               <Articles articles={combinedArticles} />
             </div>
-            <div className="col-3">
+            {!tagLocation && (<div className="col-3">
               <PopularArticles articles={articles} />
               <RandomArticle articles={articles} />
-            </div>
+            </div>)}
           </div>
         </div>
       )}
