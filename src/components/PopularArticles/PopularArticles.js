@@ -34,7 +34,7 @@ const PopularArticles = ({ articles }) => {
       >
         POPULAR POSTS
       </Typography>
-      <Row className="right-box popular-posts-box w-100">
+      <Row className="right-box popular-posts-box w-100 ml-0">
         {!articles.length && (
           <div className="text-center">
             <Spinner animation="border" variant="primary" />
