@@ -43,7 +43,6 @@ const RandomArticle = ({ articles, props }) => {
               }
               alt=""
               className="random-post-img pr-5"
-              role="button"
               onClick={() => navigateToArticle()}
             />
           </Col>
