@@ -1,6 +1,8 @@
 export const beginners = [
   "beginners",
-  "codenewbie, , challenge, cnc2021",
+  "codenewbie", 
+  "challenge", 
+  "cnc2021",
   "tutorial",
 ];
 

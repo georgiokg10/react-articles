@@ -12,7 +12,7 @@ const Stats = ({ article }) => {
         <div className="font-size-ten d-flex row place-content-center w-100">
           <div className="d-flex mr-2">
             <Avatar
-              alt={article?.user?.name}
+              alt=""
               src={article?.user?.profile_image}
               className="avatar-small mr-2"
             />
