@@ -51,9 +51,10 @@ const Home = () => {
     const bannerPosts = !!articles && articles.slice(0, 3);
     setBannerArticles(bannerPosts);
 
-    const combinedArticles = !tagLocation ?
-      !!articles &&
-      articles.filter((article) => !bannerPosts.includes(article)) : articles;
+    const combinedArticles = !tagLocation
+      ? !!articles &&
+        articles.filter((article) => !bannerPosts.includes(article))
+      : articles;
     setCombinedArticles(combinedArticles);
   };
 
@@ -84,9 +85,9 @@ const Home = () => {
       }
       if (tagLocation) {
         const selectedTag = location.pathname.split("/").pop();
-        if (article.tag_list.includes((selectedTag))) {
+        if (article.tag_list.includes(selectedTag)) {
           filteredTaggedArticles.push(article);
-        };
+        }
       }
       if (foundArticle && !tagLocation) filteredTaggedArticles.push(article);
     });
@@ -106,7 +107,8 @@ const Home = () => {
       {!isLoading && (
         <div className="justify-content-between mt-90">
           <div className="col-12 d-flex pl-0 pr-0">
-            {!tagLocation && bannerArticles.length > 0 &&
+            {!tagLocation &&
+              bannerArticles.length > 0 &&
               bannerArticles.map((bannerArticle) => {
                 return (
                   <Row
@@ -135,10 +137,12 @@ const Home = () => {
             <div className="col-9 mb-5">
               <Articles articles={combinedArticles} />
             </div>
-            {!tagLocation && (<div className="col-3">
-              <PopularArticles articles={articles} />
-              <RandomArticle articles={articles} />
-            </div>)}
+            {!tagLocation && (
+              <div className="col-3">
+                <PopularArticles articles={articles} />
+                <RandomArticle articles={articles} />
+              </div>
+            )}
           </div>
         </div>
       )}
