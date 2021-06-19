@@ -19,6 +19,7 @@ class Gallery extends Component {
           this.setState({
             picList: [...this.state.picList, item.social_image],
           });
+          return this.state.picList;
         });
       });
   }

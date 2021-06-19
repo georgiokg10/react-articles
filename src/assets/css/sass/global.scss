@@ -12,7 +12,7 @@ body {
 
 .nav-link.active {
   font-weight: bold;
-  border-top: 1px solid #ffffff;
+  border-top: none;
 }
 
 .hidden-scroll {
@@ -65,7 +65,7 @@ img {
 }
 
 .headerColour {
-  background-color: lightskyblue;
+  background-color: #fff;
 }
 
 .nav-bar-menu {
@@ -144,13 +144,13 @@ img {
 }
 
 .defaultBtn {
-  background-color: #3fa8ff !important;
+  background-color: #256eff !important;
   color: #fff !important;
   text-transform: none !important;
 }
 
 .article-details-nav-btn {
-  color: #3fa8ff !important;
+  color: #256eff !important;
   text-align: right;
   cursor: pointer;
   font-weight: bold;
@@ -173,7 +173,7 @@ img {
 .footer {
   width: 100%;
   top: auto;
-  background: #3f3fff;
+  background: #256eff;
   bottom: 0;
   position: absolute;
 }
@@ -263,7 +263,7 @@ img {
 }
 
 .banner-title:hover {
-  background-color: #3fa8ff;
+  background-color: #256eff;
   opacity: 1;
 }
 

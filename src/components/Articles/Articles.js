@@ -4,7 +4,6 @@ import Stats from "../../common/components/Stats";
 import { Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import Tags from "../../common/components/Tags";
-import Button from "@material-ui/core/Button";
 
 const Articles = ({ articles }) => {
   const articlesHistory = useHistory();
@@ -50,13 +49,13 @@ const Articles = ({ articles }) => {
                 </div>
                 <Card.Text>{article.description}</Card.Text>
                 <div className="article-details-nav-btn">
-                  <Button
-                    className="mt-2 mb-3 defaultBtn p-1 mr-2"
+                  <span
+                    className="mt-2 mb-3 p-1 mr-2"
                     variant="contained"
                     onClick={() => navigateToArticle(article)}
                   >
                     READ MORE {">"}
-                  </Button>
+                  </span>
                 </div>
               </Card.Body>
             </Card>

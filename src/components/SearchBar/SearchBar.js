@@ -11,7 +11,6 @@ import { useLocation } from "react-router-dom";
 const SearchBar = () => {
   const [searchResult, setSearchResult] = React.useState("");
   const [articles, setArticlesData] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [foundArticles, setFoundArticles] = React.useState([]);
   const [selectedArticle, setSelectedArticle] = React.useState(null);
@@ -36,6 +35,7 @@ const SearchBar = () => {
         if (item.description.includes(searchResult.toString().trim())) {
           results.push(item);
         }
+        return results;
       });
     }
     setFoundArticles(results);
@@ -47,13 +47,6 @@ const SearchBar = () => {
       setSearchResult("");
     }
   }, [location]);
-
-
-  React.useEffect(() => {
-    if (foundArticles.length > 0) {
-      setIsLoading(false);
-    } else setIsLoading(true);
-  }, [foundArticles]);
 
   const onSearch = (e) => {
     if (!articles.length) {
@@ -82,7 +75,7 @@ const SearchBar = () => {
         <Form.Group as={Col} className="mb-0">
           <InputGroup>
             <InputGroup.Prepend>
-              <InputGroup.Text>
+              <InputGroup.Text style={{background: 'none', border: 'none'}}>
                 <SearchIcon />
               </InputGroup.Text>
             </InputGroup.Prepend>
@@ -104,7 +97,6 @@ const SearchBar = () => {
               <Card key={idx}>
                 <Paper
                   className="search-list-item row ml-0"
-                  key={idx}
                   onClick={() => navigateToArticle(article)}
                   role="button"
                   style={{

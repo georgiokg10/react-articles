@@ -25,7 +25,7 @@ const Home = () => {
   const tagLocation = location.pathname.includes("tagged");
 
   useEffect(() => {
-    const fetchAllArticles = async () => {
+    (async () => {
       setError(null);
       setIsLoading(true);
 
@@ -39,9 +39,9 @@ const Home = () => {
         setError(error);
         setIsLoading(false);
       }
-    };
-    fetchAllArticles();
-  }, [location.pathname]);
+    })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname])
 
   const navigateToArticle = (article) => {
     articlesHistory.push(`/article/${article.id}`);
@@ -90,6 +90,7 @@ const Home = () => {
         }
       }
       if (foundArticle && !tagLocation) filteredTaggedArticles.push(article);
+      return filteredTaggedArticles;
     });
     return filteredTaggedArticles;
   };
