@@ -16,6 +16,8 @@ const Article = (props) => {
   const article = props.match.params.articleId;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchArticle = async () => {
       setError(error);
       setIsLoading(true);
@@ -58,7 +60,15 @@ const Article = (props) => {
       {!isLoading && (
         <>
           <div className="article-banner mt-90">
-            <img src={selectedArticle?.cover_image ? selectedArticle.cover_image : selectedArticle?.social_image} alt="" className="" />
+            <img
+              src={
+                selectedArticle?.cover_image
+                  ? selectedArticle.cover_image
+                  : selectedArticle?.social_image
+              }
+              alt=""
+              className=""
+            />
           </div>
           <Row className="justify-content-between">
             <Col xs="9">
